@@ -8,7 +8,7 @@ const gi = require('node-gtk');
 const fs = require('fs');
 const Fin = gi.require('Fin', '0.2');
 const fin = new Fin.Client();
-const BALENA_FIN_REVISION = fin.revision;
+const BALENA_FIN_REVISION = process.env.FIN_REVISION || fin.revision;
 let port;
 if (BALENA_FIN_REVISION === '09') {
   port = process.env.SERIALPORT || "/dev/ttyUSB0";
